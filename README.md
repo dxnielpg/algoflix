@@ -6,7 +6,7 @@ banco.php: Contém funções para manipulação de usuários no banco de dados, 
 
 cabecalho.php: Fornece a estrutura do cabeçalho HTML comum para todas as páginas da aplicação, incluindo links para estilos CSS do Bootstrap.
 
-cadastrar.php: Formulário e lógica para registrar novos usuários na aplicação, validando entradas e inserindo os dados no banco de dados.
+cadastrar.php: Formulário e lógica para registrar novos filmes na aplicação.
 
 filmes.php: Exibe uma lista de filmes recuperados do banco de dados, permitindo que os usuários visualizem filmes com informações como título, nota e descrição.
 
@@ -18,8 +18,6 @@ Adicionar Funcionalidade de Exclusão e Edição de Filmes: Implementar as pági
 
 Adicionar Login para Administradores: Desenvolver um sistema de login separado para administradores, com credenciais específicas, para garantir que apenas usuários autorizados possam adicionar, editar ou excluir filmes.
 
-Restrição de Acesso: Implementar verificações de autenticação e autorização para garantir que apenas administradores possam acessar as funcionalidades de adicionar, editar e excluir filmes.
+Restrição de Acesso: garantir que apenas administradores possam acessar as funcionalidades de adicionar, editar e excluir filmes.
 
 Incluir Trailer de Filmes: Adicionar um campo para armazenar e exibir trailers de filmes, permitindo que os usuários visualizem um trailer antes de decidir assistir ao filme completo.
-
-Refinamento de Interface de Usuário: Melhorar a interface de usuário para uma experiência mais intuitiva e atraente, utilizando o Bootstrap e outras ferramentas de front-end.
