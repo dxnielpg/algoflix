@@ -1,4 +1,3 @@
-<pre>
 <?php
 
 $banco = new mysqli("localhost:3307", "root", "", "filmesflix");
@@ -7,7 +6,7 @@ function createOnDB(string $into, string $value, $debug = false): void
 {
     global $banco;
 
-    $q = "INSERT INTO $into VALUE $value";
+    $q = "INSERT INTO $into VALUES $value";
     $resp = $banco->query($q);
 
     if ($debug) {
@@ -15,7 +14,6 @@ function createOnDB(string $into, string $value, $debug = false): void
         echo "<br> Resp: " . var_dump($resp);
     }
 }
-
 
 function updateOnDB(string $data, string $set, string $where, $debug = false): void
 {
@@ -30,7 +28,7 @@ function updateOnDB(string $data, string $set, string $where, $debug = false): v
     }
 }
 
-function deleteFromDB(string $data, string $where, bool $debug = false): void
+function deleteFromDB(string $data, string $where, $debug = false): void
 {
     global $banco;
 
@@ -43,37 +41,99 @@ function deleteFromDB(string $data, string $where, bool $debug = false): void
     }
 }
 
-
-function criarUsuario(string $usuario, string $nome, string $senha, $debug = false): void
+function criarUsuarioFilmesflix(string $usuario, string $nome, string $senha, bool $is_admin = false, $debug = false): void
 {
     $senha = password_hash($senha, PASSWORD_DEFAULT);
-    createOnDB("usuarios(cod, usuario, nome, senha)", "(NULL, '$usuario', '$nome', '$senha')", $debug);
+    $is_admin_int = $is_admin ? 1 : 0;
+    createOnDB("usuarios(cod, usuario, nome, senha, is_admin)", "(NULL, '$usuario', '$nome', '$senha', $is_admin_int)", $debug);
 }
 
-function atualizarUsuario(string $usuario, string $nome = "", string $senha = "", $debug = false)
+function atualizarUsuarioFilmesflix(string $usuario, string $nome = "", string $senha = "", bool $is_admin = null, $debug = false)
 {
-
-    if ($nome != "" && $senha != "") {
-        // atualiza nome e senha
+    $set = [];
+    if ($nome) {
+        $set[] = "nome='$nome'";
+    }
+    if ($senha) {
         $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
-        $set = "nome='$nome', senha='$senhaHash'";
-    } else if ($nome != "") {
-        // atualiza nome
-        $set = "nome='$nome'";
-    } else if ($senha != "") {
-        // atualiza senha
-        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
-        $set = "senha='$senhaHash'";
+        $set[] = "senha='$senhaHash'";
+    }
+    if ($is_admin !== null) {
+        $is_admin_int = $is_admin ? 1 : 0;
+        $set[] = "is_admin=$is_admin_int";
     }
 
-    updateOnDB("usuarios", $set, "usuario='$usuario'");
+    updateOnDB("usuarios", implode(", ", $set), "usuario='$usuario'", $debug);
 }
 
-function deletarUsuario(string $usuario, $debug = false)
+function deletarUsuarioFilmesflix(string $usuario, $debug = false)
 {
     deleteFromDB("usuarios", "usuario='$usuario'", $debug);
 }
 
+// Funções relacionadas a filmes
+function criarFilme(string $titulo, float $nota, string $descricao, string $poster, $debug = false): void
+{
+    createOnDB("filmes(id, titulo, nota, descricao, poster)", "(NULL, '$titulo', $nota, '$descricao', '$poster')", $debug);
+}
+
+function atualizarFilme(int $id, string $titulo = "", float $nota = 0, string $descricao = "", string $poster = "", $debug = false)
+{
+    $set = [];
+
+    if ($titulo != "") {
+        $set[] = "titulo='$titulo'";
+    }
+    if ($nota != 0) {
+        $set[] = "nota=$nota";
+    }
+    if ($descricao != "") {
+        $set[] = "descricao='$descricao'";
+    }
+    if ($poster != "") {
+        $set[] = "poster='$poster'";
+    }
+
+    $setString = implode(", ", $set);
+    updateOnDB("filmes", $setString, "id=$id", $debug);
+}
+
+function deletarFilme(int $id, $debug = false)
+{
+    deleteFromDB("filmes", "id=$id", $debug);
+}
+
+function getFilmes(): array
+{
+    global $banco;
+
+    $result = $banco->query("SELECT * FROM filmes");
+    return $result->fetch_all(MYSQLI_ASSOC);
+}
+
+function getFilmeById(int $id): ?array
+{
+    global $banco;
+
+    $result = $banco->query("SELECT * FROM filmes WHERE id = $id");
+    if ($result->num_rows > 0) {
+        return $result->fetch_assoc();
+    } else {
+        return null;
+    }
+}
+
+function getFilmeByNome(string $nome): ?array
+{
+    global $banco;
+
+    $nome = $banco->real_escape_string($nome);
+    $result = $banco->query("SELECT * FROM filmes WHERE titulo LIKE '%$nome%'");
+    if ($result->num_rows > 0) {
+        return $result->fetch_all(MYSQLI_ASSOC);
+    } else {
+        return null;
+    }
+}
 
 ?>
-</pre>

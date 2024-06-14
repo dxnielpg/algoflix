@@ -1,8 +1,7 @@
 # Resumo do Projeto
 Arquivos do Projeto:
-banco-filmes.php: Este arquivo define as funções para manipulação de filmes no banco de dados, incluindo criação, atualização, exclusão e obtenção de filmes.
 
-banco.php: Contém funções para manipulação de usuários no banco de dados, como criação, atualização e exclusão de usuários. Também inclui a lógica de hash de senha para segurança.
+banco.php: Contém funções para manipulação de usuários e filmes no banco de dados, como criação, atualização e exclusão de usuários
 
 cabecalho.php: Fornece a estrutura do cabeçalho HTML comum para todas as páginas da aplicação, incluindo links para estilos CSS do Bootstrap.
 
@@ -12,12 +11,30 @@ filmes.php: Exibe uma lista de filmes recuperados do banco de dados, permitindo 
 
 login.php: Gerencia o processo de login, autentica usuários e inicia uma sessão para usuários autenticados, redirecionando-os para a página de filmes.
 
-# Próximos Passos
+logout.php: faz o logout da sessão de usuario.
 
-Adicionar Funcionalidade de Exclusão e Edição de Filmes: Implementar as páginas e funções necessárias para permitir aos administradores editar e excluir filmes. Isso incluirá a criação de formulários para edição e confirmação de exclusão de filmes.
+## POSSIVES PROXIMOS PASSOS
+## Funcionalidades Adicionais:
 
-Adicionar Login para Administradores: Desenvolver um sistema de login separado para administradores, com credenciais específicas, para garantir que apenas usuários autorizados possam adicionar, editar ou excluir filmes.
+# Trailers: 
+Adicionar campo para URL do trailer na tabela de filmes, incluir nos formulários de cadastro/edição e exibir na página de detalhes ou como modal na lista.
 
-Restrição de Acesso: garantir que apenas administradores possam acessar as funcionalidades de adicionar, editar e excluir filmes.
+# Página de Detalhes Detalhada: 
+Criar página dedicada com informações completas (título, descrição, nota, poster, trailer, reviews, elenco, etc.).
 
-Incluir Trailer de Filmes: Adicionar um campo para armazenar e exibir trailers de filmes, permitindo que os usuários visualizem um trailer antes de decidir assistir ao filme completo.
+# Avaliação de Filmes: 
+Permitir que os usuários avaliem e comentem filmes, exibindo a média de avaliações e comentários na página de detalhes.
+
+# Pesquisa e Filtros: 
+Implementar busca por título, gênero, ano, etc., além de filtros para filmes mais bem avaliados, mais recentes, etc.
+# Gêneros: 
+Adicionar tabela de gêneros no banco de dados, permitindo que cada filme tenha um ou mais gêneros e exibindo-os na lista e detalhes dos filmes.
+
+# Lista de Favoritos: 
+Permitir que os usuários adicionem filmes a uma lista de favoritos e exibir essa lista em uma página separada.
+
+
+###### CONCLUIDOS ######
+## LOGIN ADMIN ##
+## EDITAR EXCLUIR E CADASTRAR FILMES(APENAS PARA ADMIN) ##
+## BANCO DE DADOS UNIFICADO EM UM SÓ ARQUIVO PARA NAO OCORRER ERROS ##
