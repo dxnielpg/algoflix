@@ -80,4 +80,30 @@ function getFilmes(): array
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
+function getFilmeById(int $id): ?array
+{
+    global $banco;
+
+    $result = $banco->query("SELECT * FROM filmes WHERE id = $id");
+    if ($result->num_rows > 0) {
+        return $result->fetch_assoc();
+    } else {
+        return null;
+    }
+}
+
+function getFilmeByNome(string $nome): ?array
+{
+    global $banco;
+
+    $nome = $banco->real_escape_string($nome);
+    $result = $banco->query("SELECT * FROM filmes WHERE titulo LIKE '%$nome%'");
+    if ($result->num_rows > 0) {
+        return $result->fetch_all(MYSQLI_ASSOC);
+    } else {
+        return null;
+    }
+}
+
+
 ?>
