@@ -1,5 +1,5 @@
 <?php include "cabecalho.php"; ?>
-<?php include "banco-filmes.php"; ?>
+<?php include "banco.php"; ?>
 
 <body>
     <div class="container mt-4">
