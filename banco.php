@@ -1,6 +1,6 @@
 <?php
 
-$banco = new mysqli("localhost:3307", "root", "", "filmesflix");
+$banco = new mysqli("localhost:3306", "root", "", "filmes");
 
 function createOnDB(string $into, string $value, $debug = false): void
 {
@@ -72,9 +72,9 @@ function deletarUsuarioFilmesflix(string $usuario, $debug = false)
 }
 
 // Funções relacionadas a filmes
-function criarFilme(string $titulo, float $nota, string $descricao, string $poster, $debug = false): void
+function criarFilme(string $titulo, float $nota, string $descricao, string $poster, string $trailer, $debug = false): void
 {
-    createOnDB("filmes(id, titulo, nota, descricao, poster)", "(NULL, '$titulo', $nota, '$descricao', '$poster')", $debug);
+    createOnDB("filmes(id, titulo, nota, descricao, poster, trailer)", "(NULL, '$titulo', $nota, '$descricao', '$poster', '$trailer')", $debug);
 }
 
 function atualizarFilme(int $id, string $titulo = "", float $nota = 0, string $descricao = "", string $poster = "", $debug = false)

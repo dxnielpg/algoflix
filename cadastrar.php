@@ -7,7 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nota = $_POST['nota'];
     $descricao = $_POST['descricao'];
     $poster = $_POST['poster'];
-    criarFilme($titulo, $nota, $descricao, $poster, true);
+    $trailer = $_POST['trailer'];
+    criarFilme($titulo, $nota, $descricao, $poster, $trailer, true);
     header('Location: filmes.php');
     exit;
 }
@@ -32,6 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="mb-3">
                 <label for="poster" class="form-label">URL do Poster</label>
                 <input type="url" class="form-control" id="poster" name="poster" required>
+            </div>
+            <div class="mb-3">
+                <label for="trailer" class="form-label">URL do Trailer</label>
+                <input type="url" class="form-control" id="trailer" name="trailer" required>
             </div>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
         </form>

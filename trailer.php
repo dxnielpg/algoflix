@@ -8,9 +8,15 @@ if (!isset($_SESSION['usuario'])) {
     exit;
 }
 
-$usuario = $_SESSION['usuario'];
-$is_admin = $_SESSION['is_admin'];
-$filmes = getFilmes(); // Função para obter a lista de filmes
+// Verifica se foi passado um parâmetro 'id' na URL
+if (!isset($_GET['id'])) {
+    header('Location: filmes.php');
+    exit;
+}
+
+$id = $_GET['id'];
+
+$filme = getFilmeById($id); // Função para obter os detalhes de um filme pelo ID
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +24,7 @@ $filmes = getFilmes(); // Função para obter a lista de filmes
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FILMESFLIX</title>
+    <title>Trailer - <?= htmlspecialchars($filme['titulo']) ?></title>
     <!-- Incluindo o CSS do Bootstrap -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -37,7 +43,7 @@ $filmes = getFilmes(); // Função para obter a lista de filmes
           <li class="nav-item">
             <a class="nav-link" href="logout.php">Logout</a>
           </li>
-          <?php if ($is_admin): ?>
+          <?php if ($_SESSION['is_admin']): ?>
             <li class="nav-item">
               <a class="nav-link" href="cadastrar.php">Cadastrar Filme</a>
             </li>
@@ -52,31 +58,10 @@ $filmes = getFilmes(); // Função para obter a lista de filmes
   </nav>
 
   <div class="container mt-5">
-    <h2>Lista de Filmes</h2>
-    <div class="row">
-      <?php if ($filmes): ?>
-        <?php foreach ($filmes as $filme): ?>
-          <div class="col-md-4 mb-4">
-            <div class="card">
-              <!-- Link para o trailer.php passando o ID do filme como parâmetro -->
-              <a href="trailer.php?id=<?= $filme['id'] ?>">
-                <img src="<?= htmlspecialchars($filme['poster']) ?>" class="card-img-top" alt="<?= htmlspecialchars($filme['titulo']) ?>">
-              </a>
-              <div class="card-body">
-                <h5 class="card-title"><?= htmlspecialchars($filme['titulo']) ?></h5>
-                <p class="card-text"><?= htmlspecialchars($filme['descricao']) ?></p>
-                <p class="text-muted">Nota: <?= htmlspecialchars($filme['nota']) ?></p>
-                <?php if ($is_admin): ?>
-                  <a href="editar.php?id=<?= $filme['id'] ?>" class="btn btn-warning">Editar</a>
-                  <a href="excluir.php?id=<?= $filme['id'] ?>" class="btn btn-danger">Excluir</a>
-                <?php endif; ?>
-              </div>
-            </div>
-          </div>
-        <?php endforeach; ?>
-      <?php else: ?>
-        <p>Nenhum filme encontrado.</p>
-      <?php endif; ?>
+    <h2>Trailer de <?= htmlspecialchars($filme['titulo']) ?></h2>
+    <div class="embed-responsive embed-responsive-16by9">
+      <!-- Inserir o vídeo do trailer do filme -->
+      <iframe width="560" height="315" src="<?= htmlspecialchars($filme['trailer']) ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </div>
 
