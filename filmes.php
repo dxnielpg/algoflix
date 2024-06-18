@@ -1,7 +1,7 @@
 <?php
 session_start();
-include "cabecalho.php"; // Inclui o cabeçalho comum
-include "banco.php"; // Inclui o arquivo com funções de banco de dados
+include "cabecalho.php";
+include "banco.php";
 
 if (!isset($_SESSION['usuario'])) {
     header('Location: login.php');
@@ -10,7 +10,7 @@ if (!isset($_SESSION['usuario'])) {
 
 $usuario = $_SESSION['usuario'];
 $is_admin = $_SESSION['is_admin'];
-$filmes = getFilmes(); // Função para obter a lista de filmes
+$filmes = getFilmes();
 ?>
 
 <!DOCTYPE html>
@@ -41,10 +41,16 @@ $filmes = getFilmes(); // Função para obter a lista de filmes
             <li class="nav-item">
               <a class="nav-link" href="cadastrar.php">Cadastrar Filme</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="editar.php">Editar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="excluir.php">Excluir</a>
+            </li>
           <?php endif; ?>
         </ul>
-        <form class="d-flex ms-auto">
-          <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+        <form class="d-flex ms-auto" action="filmes.php" method="get">
+          <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" name="nome">
           <button class="btn btn-outline-success" type="submit">Pesquisar</button>
         </form>
       </div>
@@ -58,7 +64,7 @@ $filmes = getFilmes(); // Função para obter a lista de filmes
         <?php foreach ($filmes as $filme): ?>
           <div class="col-md-4 mb-4">
             <div class="card">
-              <!-- Link para o trailer.php passando o ID do filme como parâmetro -->
+
               <a href="trailer.php?id=<?= $filme['id'] ?>">
                 <img src="<?= htmlspecialchars($filme['poster']) ?>" class="card-img-top" alt="<?= htmlspecialchars($filme['titulo']) ?>">
               </a>
@@ -80,7 +86,6 @@ $filmes = getFilmes(); // Função para obter a lista de filmes
     </div>
   </div>
 
-  <!-- Incluindo o JS do Bootstrap e dependências -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

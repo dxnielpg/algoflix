@@ -6,7 +6,7 @@
         <h1>Editar Filme</h1>
         <form method="get">
             <div class="mb-3">
-                <label for="nome" class="form-label">Nome do Filme</label>
+                <label for="nome" class="form-label">Título do Filme</label>
                 <input type="text" class="form-control" id="nome" name="nome" required>
             </div>
             <button type="submit" class="btn btn-primary">Buscar</button>
@@ -72,7 +72,8 @@
             $nota = $_POST['nota'];
             $descricao = $_POST['descricao'];
             $poster = $_POST['poster'];
-            atualizarFilme($id, $titulo, $nota, $descricao, $poster, true);
+            $trailer = $_POST['trailer'];
+            atualizarFilme($id, $titulo, $nota, $descricao, $poster, $trailer, true);
             echo "<p>Filme atualizado com sucesso.</p>";
             header('Refresh: 1; filmes.php');
         }

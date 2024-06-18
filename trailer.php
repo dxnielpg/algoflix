@@ -1,14 +1,14 @@
 <?php
 session_start();
-include "cabecalho.php"; // Inclui o cabeçalho comum
-include "banco.php"; // Inclui o arquivo com funções de banco de dados
+include "cabecalho.php";
+include "banco.php";
 
 if (!isset($_SESSION['usuario'])) {
     header('Location: login.php');
     exit;
 }
 
-// Verifica se foi passado um parâmetro 'id' na URL
+
 if (!isset($_GET['id'])) {
     header('Location: filmes.php');
     exit;
@@ -16,7 +16,7 @@ if (!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 
-$filme = getFilmeById($id); // Função para obter os detalhes de um filme pelo ID
+$filme = getFilmeById($id);
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ $filme = getFilmeById($id); // Função para obter os detalhes de um filme pelo 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trailer - <?= htmlspecialchars($filme['titulo']) ?></title>
-    <!-- Incluindo o CSS do Bootstrap -->
+
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -60,12 +60,12 @@ $filme = getFilmeById($id); // Função para obter os detalhes de um filme pelo 
   <div class="container mt-5">
     <h2>Trailer de <?= htmlspecialchars($filme['titulo']) ?></h2>
     <div class="embed-responsive embed-responsive-16by9">
-      <!-- Inserir o vídeo do trailer do filme -->
+
       <iframe width="560" height="315" src="<?= htmlspecialchars($filme['trailer']) ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </div>
 
-  <!-- Incluindo o JS do Bootstrap e dependências -->
+
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
