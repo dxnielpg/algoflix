@@ -1,0 +1,21 @@
+a{
+    font-family: "Lilita One", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+
+card{
+    
+    border-radius: 50px;
+    box-shadow: 50px;
+    
+}
+
+body{
+    background: rgb(10,8,41);
+background: radial-gradient(circle, rgba(10,8,41,1) 0%, rgba(17,12,64,1) 64%, rgba(0,0,0,1) 100%);
+}
+
+h2{
+    color: white;
+}

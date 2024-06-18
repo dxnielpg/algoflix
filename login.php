@@ -16,7 +16,7 @@ $success = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['login'])) {
-        // Process login
+
         if ($usu && $sen) {
             $usu = $banco->real_escape_string($usu);
             $busca = $banco->query("SELECT * FROM usuarios WHERE usuario='$usu'");

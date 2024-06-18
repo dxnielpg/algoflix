@@ -15,6 +15,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <body>
+<style>
+        body{
+        background: rgb(10,8,41);
+        background: radial-gradient(circle, rgba(10,8,41,1) 0%, rgba(17,12,64,1) 64%, 
+        rgba(0,0,0,1) 100%);
+        }  
+        label{
+            color: white;
+        }
+        h1, h2, li{
+            color: white;
+        }
+        form {
+            max-width: 600px; /* Define a largura máxima do formulário */
+            margin: 40px auto; /* Centraliza o formulário na página */
+            padding: 20px;
+            border: 1px solid #ccc; /* Adiciona uma borda fina ao formulário */
+            border-radius: 5px; /* Arredonda os cantos do formulário */
+        }
+    </style>
     <div class="container mt-4">
         <h1>Cadastrar Novo Filme</h1>
         <form method="post">
