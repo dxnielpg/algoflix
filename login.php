@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $error = 'Por favor, preencha todos os campos';
         }
     } elseif (isset($_POST['register'])) {
-        // Process registration
+        // Sem caractere especial e Hash pra criptografar a senha
         if ($usu && $nome && $sen) {
             $usu = $banco->real_escape_string($usu);
             $nome = $banco->real_escape_string($nome);
@@ -69,6 +69,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
+
+    <div class="Titulo">
+        <h1>FILMESFLIX</h1>
+    </div>
+    
     <div class="wrapper">
         <div class="card-switch">
             <label class="switch">

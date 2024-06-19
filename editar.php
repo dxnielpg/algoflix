@@ -40,6 +40,10 @@
         .btn-secondary {
             background-color: blue;
         }
+
+        a.btn.btn btn-warning btn-sm{
+            margin-left: 15px;
+        }
     </style>
     <div class="container mt-4">
         <h1>Editar Filme</h1>
