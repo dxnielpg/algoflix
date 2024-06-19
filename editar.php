@@ -22,6 +22,24 @@
             border: 1px solid #ccc;
             border-radius: 5px; 
         }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: blue;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: blue;
+        }
+        .btn-secondary {
+            background-color: blue;
+        }
     </style>
     <div class="container mt-4">
         <h1>Editar Filme</h1>
@@ -31,6 +49,7 @@
                 <input type="text" class="form-control" id="nome" name="nome" required>
             </div>
             <button type="submit" class="btn btn-primary">Buscar</button>
+            <button type="button" class="btn btn-secondary" onclick="location.href='filmes.php'">Voltar</button>
         </form>
 
         <?php
