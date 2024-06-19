@@ -27,8 +27,16 @@ $filme = getFilmeById($id);
     <title>Trailer - <?= htmlspecialchars($filme['titulo']) ?></title>
     <link rel="stylesheet" href="trailer.css">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .btn-voltar {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
 </head>
 <body>
+<<<<<<< HEAD
 <header class="header">
     <a class="navbar-brand" href="filmes.php">FILMES<span class="highlight">FLIX</span></a>
         <style>
@@ -58,12 +66,33 @@ $filme = getFilmeById($id);
 
 
     </header>
+=======
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="filmes.php">FILMES<span class="highlight">FLIX</span></a>
+        <style>
+          .highlight {
+          color: #ff0000;
+          font-weight: bold; 
+          }
+        </style>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <button type="button" class="btn btn-secondary btn-voltar" onclick="location.href='filmes.php'">Voltar</button>
+>>>>>>> 7bf3531c582204f9d600fc2aa554eb6f5215698e
 
   <div class="container mt-5">
     <h2>Trailer de <?= htmlspecialchars($filme['titulo']) ?></h2>
     <div class="embed-responsive embed-responsive-16by9">
-
-      <iframe width="560" height="315" src="<?= htmlspecialchars($filme['trailer']) ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="<?= htmlspecialchars($filme['trailer']) ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </div>
 

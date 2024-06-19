@@ -36,6 +36,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: blue;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background-color: blue;
+        }
+        .btn-secondary {
+            background-color: blue;
+        }
     </style>
     <div class="container mt-4">
         <h1>Cadastrar Novo Filme</h1>
@@ -61,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="url" class="form-control" id="trailer" name="trailer" required>
             </div>
             <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="button" class="btn btn-secondary" onclick="location.href='filmes.php'">Voltar</button>
         </form>
     </div>
 </body>
