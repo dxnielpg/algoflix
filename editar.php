@@ -16,11 +16,11 @@
             text-align: center;
         }
         form {
-            max-width: 600px; /* Define a largura máxima do formulário */
-            margin: 40px auto; /* Centraliza o formulário na página */
+            max-width: 600px;
+            margin: 40px auto; 
             padding: 20px;
-            border: 1px solid #ccc; /* Adiciona uma borda fina ao formulário */
-            border-radius: 5px; /* Arredonda os cantos do formulário */
+            border: 1px solid #ccc;
+            border-radius: 5px; 
         }
     </style>
     <div class="container mt-4">

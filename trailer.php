@@ -34,8 +34,8 @@ $filme = getFilmeById($id);
         <a class="navbar-brand" href="filmes.php">FILMES<span class="highlight">FLIX</span></a>
         <style>
     .highlight {
-        color: #ff0000; /* Cor desejada para FLIX */
-        font-weight: bold; /* Torna o texto mais espesso */
+        color: #ff0000;
+        font-weight: bold; 
     }
 </style>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,19 +46,7 @@ $filme = getFilmeById($id);
           <li class="nav-item">
             <a class="nav-link" href="filmes.php">Filmes</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="logout.php">Logout</a>
-          </li>
-          <?php if ($_SESSION['is_admin']): ?>
-            <li class="nav-item">
-              <a class="nav-link" href="cadastrar.php">Cadastrar Filme</a>
-            </li>
-          <?php endif; ?>
         </ul>
-        <form class="d-flex ms-auto">
-          <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-          <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-        </form>
       </div>
     </div>
   </nav>

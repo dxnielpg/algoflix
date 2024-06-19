@@ -37,8 +37,8 @@ if ($nome_pesquisa) {
         <a class="navbar-brand" href="filmes.php">FILMES<span class="highlight">FLIX</span></a>
         <style>
     .highlight {
-        color: #ff0000; /* Cor desejada para FLIX */
-        font-weight: bold; /* Torna o texto mais espesso */
+        color: #ff0000;
+        font-weight: bold; 
     }
 </style>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
