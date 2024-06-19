@@ -1,6 +1,6 @@
 <?php
 
-$banco = new mysqli("localhost:3307", "root", "", "filmesflix");
+$banco = new mysqli("localhost:3306", "root", "", "algoflix");
 
 function createOnDB(string $into, string $value, $debug = false): void
 {

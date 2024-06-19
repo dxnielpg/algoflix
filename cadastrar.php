@@ -26,7 +26,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         h1, h2, li{
             color: white;
+            text-align: center;
         }
+
         form {
             max-width: 600px; /* Define a largura máxima do formulário */
             margin: 40px auto; /* Centraliza o formulário na página */

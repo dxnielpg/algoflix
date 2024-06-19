@@ -77,8 +77,8 @@ if ($nome_pesquisa) {
     </nav>
 
     <div class="container mt-5">
-        <h2>Lista de Filmes</h2>
-        <div class="row">
+        <h2 class="listafilmes">Lista de Filmes</h2>
+      <div class="row">
             <?php if ($filmes): ?>
                 <?php foreach ($filmes as $filme): ?>
                     <div class="col-md-4 mb-4">

@@ -13,6 +13,7 @@
         }
         h1{
             color: white;
+            text-align: center;
         }
         form {
             max-width: 600px; /* Define a largura máxima do formulário */
