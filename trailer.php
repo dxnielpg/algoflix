@@ -29,27 +29,35 @@ $filme = getFilmeById($id);
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-        <a class="navbar-brand" href="filmes.php">FILMES<span class="highlight">FLIX</span></a>
+<header class="header">
+    <a class="navbar-brand" href="filmes.php">FILMES<span class="highlight">FLIX</span></a>
         <style>
     .highlight {
         color: #ff0000;
         font-weight: bold; 
     }
+    a.navbar-brand{
+        margin-right: -370px;
+        padding-right: 50px;
+    }
 </style>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+        <input type="checkbox" id="check">
+
+        <label for="check" class="icons">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <i class='bx bx-x' id="close-icon"></i>
+        </label>
+
+        <nav class="navbar">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <a class="nav-link" href="filmes.php">Filmes</a>
           </li>
         </ul>
-      </div>
-    </div>
-  </nav>
+        </nav>
+
+
+    </header>
 
   <div class="container mt-5">
     <h2>Trailer de <?= htmlspecialchars($filme['titulo']) ?></h2>

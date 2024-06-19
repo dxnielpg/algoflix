@@ -32,24 +32,28 @@ if ($nome_pesquisa) {
     <link href="https://fonts.googleapis.com/css2?family-Lilita+One&display=swap" rel-"stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-        <a class="navbar-brand" href="filmes.php">FILMES<span class="highlight">FLIX</span></a>
+<header class="header">
+    <a class="navbar-brand" href="filmes.php">FILMES<span class="highlight">FLIX</span></a>
         <style>
     .highlight {
         color: #ff0000;
         font-weight: bold; 
     }
+    a.navbar-brand{
+        margin-left: -350px;
+        padding-left: 170px;
+    }
 </style>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="filmes.php">Todos os Filmes</a>
-                    </li>
-                    <?php if ($is_admin): ?>
+        <input type="checkbox" id="check">
+
+        <label for="check" class="icons">
+            <i class='bx bx-menu' id="menu-icon"></i>
+            <i class='bx bx-x' id="close-icon"></i>
+        </label>
+
+        <nav class="navbar">
+            
+            <?php if ($is_admin): ?>
                         <li class="nav-item">
                             <a class="nav-link" href="cadastrar.php">Cadastrar Filme</a>
                         </li>
@@ -60,21 +64,21 @@ if ($nome_pesquisa) {
                             <a class="nav-link" href="excluir.php">Excluir Filmes</a>
                         </li>
                     <?php endif; ?>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <form class="form-inline" action="filmes.php" method="get">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" name="nome" value="<?= htmlspecialchars($nome_pesquisa) ?>">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
-                        </form>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
                     </li>
                 </ul>
-            </div>
-        </div>
-    </nav>
+                    <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <form class="form-inline" action="filmes.php" method="get">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar" name="nome" value="<?= htmlspecialchars($nome_pesquisa) ?>">
+                            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Pesquisar</button>
+                        </form>
+                    </li>
+                    
+
+        </nav>
+    </header>
 
     <div class="container mt-5">
         <h2 class="listafilmes">Lista de Filmes</h2>
